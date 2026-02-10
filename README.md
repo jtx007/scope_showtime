@@ -88,4 +88,3 @@ src/
 | `npm run preview` | Preview production build locally     |
 | `npm run lint`    | Run ESLint                           |
 | `npm run type-check` | TypeScript type checking          |
-# scope_showtime
