@@ -5,8 +5,6 @@ import type { ReconcileResult, Showtime } from '@/types/showtime'
 type ShowtimeInsert = Database['public']['Tables']['showtimes']['Insert']
 type ShowtimeUpdate = Database['public']['Tables']['showtimes']['Update']
 
-const THEATER_NAME = 'Scope Labs Cinema'
-
 export async function fetchShowtimes(): Promise<Showtime[]> {
   const supabase = getSupabase()
 
@@ -66,7 +64,7 @@ export async function applyChanges(result: ReconcileResult): Promise<void> {
   }
 }
 
-export async function clearSchedule(_theater?: string): Promise<void> {
+export async function clearSchedule(): Promise<void> {
   const supabase = getSupabase()
   const now = new Date().toISOString()
 

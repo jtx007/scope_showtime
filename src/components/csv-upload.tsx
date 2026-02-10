@@ -31,10 +31,7 @@ export function CsvUpload({ onReconcile, disabled }: CsvUploadProps) {
       const { fetchShowtimes } = await import('@/api/showtimes')
 
       const current = await fetchShowtimes()
-      const result = reconcile(
-        current as Parameters<typeof reconcile>[0][],
-        incoming
-      )
+      const result = reconcile(current, incoming)
       onReconcile(result, current.length)
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Upload failed')

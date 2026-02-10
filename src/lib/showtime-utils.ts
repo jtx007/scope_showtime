@@ -13,12 +13,6 @@ function normalizeTitle(title: string): string {
   return t
 }
 
-function normalizeAuditorium(aud: string): string {
-  const t = trim(aud).toLowerCase()
-  const match = t.match(/(?:auditorium|aud)\s*(?:#)?(\w+)/i) || t.match(/(\d+)/)
-  return match ? match[1] : t
-}
-
 export function normalizeShowtime(row: ShowtimeRow): ShowtimeRow {
   return {
     theater_name: trim(row.theater_name),

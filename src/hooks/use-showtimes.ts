@@ -13,7 +13,7 @@ const THEATER = 'Scope Labs Cinema'
 export function useShowtimes(theater = THEATER) {
   return useQuery({
     queryKey: queryKeys.showtimes.byTheater(theater),
-    queryFn: () => fetchShowtimes(theater),
+    queryFn: () => fetchShowtimes(),
   })
 }
 
@@ -30,7 +30,7 @@ export function useApplyChanges() {
 export function useClearSchedule() {
   const qc = useQueryClient()
   return useMutation({
-    mutationFn: () => clearSchedule(THEATER),
+    mutationFn: () => clearSchedule(),
     onMutate: async () => {
       await qc.cancelQueries({ queryKey: ['showtimes'] })
       const previous = qc.getQueriesData({ queryKey: ['showtimes'] })
